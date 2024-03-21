@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Title>Jzor Plugin Library</Title>
+		<RootNamespace>CLR</RootNamespace>
+	</PropertyGroup>
+
+	<Target Name="CopyPackageContents" AfterTargets="Build">
+		<ItemGroup>
+			<AssemblyContent Include="$(NuGetPackageRoot)Markdig\**\Markdig.dll" />
+		</ItemGroup>
+		<Copy SourceFiles="@(AssemblyContent)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+	</Target>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="Jzor.Runtime" Version="0.1.*" />
+		<PackageReference Include="Markdig" Version="0.33.0" />
+	</ItemGroup>
+
+</Project>

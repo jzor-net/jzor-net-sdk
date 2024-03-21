@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<NoWin32Manifest>true</NoWin32Manifest>
+		<AssemblyName>jzor</AssemblyName>
+		<Title>Jzor Host</Title>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Jzor.Runtime" Version="0.1.*" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<NoWin32Manifest>true</NoWin32Manifest>
+		<Title>MudBlazor.Plugin</Title>
+	</PropertyGroup>
+
+	<Target Name="CopyPackageContents" AfterTargets="Build">
+		<ItemGroup>
+			<AssemblyContent Include="$(NuGetPackageRoot)MudBlazor\**\MudBlazor.dll" />
+			<StaticContent Include="$(NuGetPackageRoot)MudBlazor\*\staticwebassets\*" />
+		</ItemGroup>
+		<Copy SourceFiles="@(AssemblyContent)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(StaticContent)" DestinationFolder="$(OutputPath)\@_content\MudBlazor" SkipUnchangedFiles="true" />
+	</Target>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="Jzor.Runtime" Version="0.1.*" />
+		<PackageReference Include="MudBlazor" Version="6.11.1" />
+	</ItemGroup>
+
+</Project>
